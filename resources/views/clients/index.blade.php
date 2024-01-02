@@ -2,7 +2,7 @@
 @php
     // $profile=asset(Storage::url('uploads/avatar/'));
     $profile = \App\Models\Utility::get_file('uploads/avatar/');
-    
+
 @endphp
 @section('page-title')
     {{ __('Manage Contacts') }}
@@ -81,7 +81,7 @@ $(document).on('change', '.sub-check', function() {
                     </button>
 
                     @can('create client')
-                     <button data-url="{{ route('clients.create') }}" data-ajax-popup="true" data-bs-toggle="tooltip" title="{{__('Create')}}"  class="btn p-2 btn-dark" data-bs-toggle="modal">
+                     <button data-url="{{ route('clients.create') }}" data-ajax-popup="true" data-bs-toggle="tooltip" title="{{__('Create')}}"  class="btn p-2 btn-dark d-none" data-bs-toggle="modal">
                         <i class="ti ti-plus" style="font-size:18px"></i>
                     </button>
                     @endcan
@@ -314,7 +314,7 @@ $(document).on('change', '.sub-check', function() {
             });
             $(document).ready(function() {
                 let curr_url = window.location.href;
-            
+
                 if(curr_url.includes('?')){
                     $('#save-filter-btn').css('display','inline-block');
                 }
