@@ -22,6 +22,7 @@ use App\Models\Pipeline;
 use App\Models\UserDeal;
 use App\Models\UserLead;
 use App\Models\DealEmail;
+use App\Models\LogActivity;
 use App\Models\LeadEmail;
 use App\Models\LeadStage;
 use Illuminate\View\View;
@@ -86,8 +87,10 @@ class LeadController extends Controller
                 $total_records = Lead::whereIn('leads.created_by', $lead_created_by)->count();
             }
 
+            $avatar = User::get()->pluck('avatar', 'id');
+            $username = User::get()->pluck('name', 'id');
 
-            return view('leads.index', compact('pipelines', 'pipeline', 'total_records'));
+            return view('leads.index', compact('pipelines', 'pipeline', 'total_records','username','avatar'));
         } else {
             return redirect()->back()->with('error', __('Permission Denied.'));
         }
@@ -650,6 +653,7 @@ class LeadController extends Controller
     public function update(Request $request, $id)
     {
         $lead              = Lead::where('id', $id)->first();
+        $from=LeadStage::find($lead->stage_id)->name;
         if (\Auth::user()->can('edit lead') || \Auth::user()->type == 'super admin') {
             if ($lead->created_by == \Auth::user()->creatorId() || \Auth::user()->can('edit lead') || \Auth::user()->type == 'super admin') {
                 $validator = \Validator::make(
@@ -715,13 +719,14 @@ class LeadController extends Controller
                 $lead->drive_link = isset($request->drive_link) ? $request->drive_link : '';
                 $lead->save();
 
+                $to=LeadStage::find($request->lead_stage)->name;
                 //Log
                 $data = [
                     'type' => 'info',
                     'note' => json_encode([
-                                    'title' => 'Lead Updated',
-                                    'message' => 'Lead updated successfully'
-                                ]),
+                        'title' => 'Lead Updated',
+                        'message' => ($from != $to) ? 'Lead updated from ' . $from . ' to ' . $to . ' successfully' : 'Lead updated successfully'
+                    ]),
                     'module_id' => $lead->id,
                     'module_type' => 'lead',
                 ];
@@ -1081,7 +1086,7 @@ class LeadController extends Controller
     public function importCsv(Request $request)
     {
         $usr = \Auth::user();
-        
+
         if ($usr->can('edit lead')) {
             $file = $request->file('leads_file');
 
@@ -2909,7 +2914,7 @@ class LeadController extends Controller
             'type' => 'lead'
         ];
         addLeadHistory($data_for_stage_history);
-
+// dd(LogActivity::find($lead_id));
 
         //Log
         $data = [
