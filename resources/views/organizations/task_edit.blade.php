@@ -14,8 +14,8 @@
 </style>
 {{ Form::model(\Auth::user(), ['route' => ['organization.tasks.update', $task->id], 'method' => 'POST', 'id' => 'update-task', 'style' => 'z-index: 9999999 !important;']) }}
 
-<div class="modal-body  pt-0" style="min-height: 80vh">
-    <div class="lead-content my-2" style="max-height: 400px; overflow-y: scroll;">
+<div class="modal-body  pt-0" style="height: 80vh">
+    <div class="lead-content my-2" style="max-height: 100%; overflow-y: scroll;">
         <div class="card-body px-2 py-0" >
 
         {{-- ACCORDION --}}

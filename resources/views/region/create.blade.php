@@ -42,9 +42,9 @@
     }
 </style>
 
-{{ Form::open(['url' => 'region/create', 'method' => 'POST' ,'id' => 'CreateRigon']) }}
-<div class="modal-body py-0" style="height: 80vh;">
-    <div class="lead-content my-2" style="height: 100%; overflow-y: scroll;">
+{{ Form::open(['url' => 'region/create', 'method' => 'POST' ,'id' => 'CreateRigon', 'novalidate' => 'novalidate']) }}
+<div class="modal-body py-0" style="height: 40vh;">
+    <div class="lead-content my-2" style="height: 100%; ">
         <div class="card-body px-2 py-0">
             {{-- Details Pill Start --}}
             <div class="accordion" id="accordionPanelsStayOpenExample">

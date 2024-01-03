@@ -347,7 +347,7 @@
                 </div> --}}
             </div>
 
-            <div class="col-sm-12">
+            <div class="col-sm-12" style="margin-bottom: 10px">
 
                 @php
                     $lead_stages = $pipeline->LeadStages;
@@ -356,7 +356,7 @@
                         $json[] = 'task-list-' . $lead_stage->id;
                     }
                 @endphp
-                <div class="row kanban-wrapper horizontal-scroll-cards" data-containers='{!! json_encode($json) !!}'
+                <div class="row kanban-wrapper horizontal-scroll-cards" style="flex-wrap: nowrap;" data-containers='{!! json_encode($json) !!}'
                     data-plugin="dragula">
                     @foreach ($lead_stages as $lead_stage)
                         @php($leads = $lead_stage->lead())
@@ -451,14 +451,14 @@
 
                                                         <li class="list-inline-item d-inline-flex align-items-center"
                                                             data-bs-toggle="tooltip" title="{{ __('Product') }}">
-                                                            <i class="f-16 text-primary ti ti-shopping-cart"></i>
+                                                            <i class="f-16 text-primary ti ti-shopping-cart d-none"></i>
                                                             {{ count($products) }}
                                                         </li>
 
                                                         <li class="list-inline-item d-inline-flex align-items-center"
                                                             data-bs-toggle="tooltip" title="{{ __('Source') }}">
                                                             <i
-                                                                class="f-16 text-primary ti ti-social"></i>{{ count($sources) }}
+                                                                class="f-16 text-primary ti ti-social d-none"></i>{{ count($sources) }}
                                                         </li>
                                                     </ul>
                                                     <div class="user-group">
