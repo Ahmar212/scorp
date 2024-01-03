@@ -216,7 +216,7 @@
     <div class="d-flex justify-content-between px-3">
         <h5>Discussion</h5>
         <div class="d-flex">
-            <a href="#" class="btn btn-sm btn-dark" id="modal-discussion-add">
+            <a href="#" class="btn  btn-dark" id="modal-discussion-add">
                 <i class="ti ti-plus modal-discussion-add-span"></i>
             </a>
         </div>
@@ -249,8 +249,7 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              
                             </ul>
                         </div>
                     </div>
@@ -262,19 +261,18 @@
                             <input type="Search" class="form-control border-0 bg-transparent ps-0"
                                 placeholder="Search this list..." aria-label="Username" aria-describedby="basic-addon1">
                         </div>
-                        <div>
-                            <button class="btn btn-dark px-2 pb-2 pt-2"><i class="ti ti-refresh"
+                        
+                            <button class="btn btn-dark p-2"><i class="ti ti-refresh"
                                     style="font-size: 18px"></i></button>
-                        </div>
-                        <div class="dropdown">
-                            <button class="btn btn-dark dropdown-toggle px-2 pb-1 pt-2" type="button"
+                        
+                        <div class="dropdown d-none">
+                            <button class="btn btn-dark h-100 p-2" type="button"
                                 id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="ti ti-settings" style="font-size:18px"></i>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Setting</a></li>
+                                
                             </ul>
                         </div>
 
@@ -283,30 +281,30 @@
                             <i class="ti ti-filter" style="font-size:18px"></i>
                         </button>
 
-                        <button class="btn btn-dark p-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        {{-- <button class="btn btn-dark p-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <i class="ti ti-layout" style="font-size:18px"></i>
-                        </button>
+                        </button> --}}
 
 
-                        <button class="btn btn-dark px-2 py-1" type="button" id="dropdownMenuButton1"
+                        {{-- <button class="btn btn-dark px-2 py-1" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             New Lead
-                        </button>
-                        {{-- {!! Form::open(['route' => 'deals.change.pipeline', 'id' => 'change-pipeline', 'class' => 'btn btn-sm']) !!}
+                        </button> --}}
+                        {{-- {!! Form::open(['route' => 'deals.change.pipeline', 'id' => 'change-pipeline', 'class' => 'btn ']) !!}
                             {!! Form::select('default_pipeline_id', $pipelines, $pipeline->id, ['class' => 'form-control select px-2 py-1', 'id' => 'default_pipeline_id', 'style' => 'width: 200px']) !!}
                         {!! Form::close() !!} --}}
                         <a href="{{ route('leads.list') }}" data-size="lg" data-bs-toggle="tooltip"
-                            title="{{ __('List View') }}" class="btn btn-sm btn-dark px-2 py-1">
+                            title="{{ __('List View') }}" class="btn btn-dark p-2 ">
                             <i class="ti ti-list" style="font-size:18px"></i>
                         </a>
                         <a href="#" data-size="lg" data-url="{{ route('leads.create') }}" data-ajax-popup="true"
                             data-bs-toggle="tooltip" title="{{ __('Create New Lead') }}"
-                            class="btn btn-sm btn-dark px-2 py-1">
+                            class="btn  btn-dark p-2">
                             <i class="ti ti-plus" style="font-size:18px"></i>
                         </a>
                         <button data-size="lg" data-bs-toggle="tooltip" title="{{ __('Import Csv') }}"
-                            class="btn btn-sm btn-dark px-2 py-1" id="import_csv_modal_btn" data-bs-toggle="modal"
+                            class="btn  btn-dark p-2 d-none" id="import_csv_modal_btn" data-bs-toggle="modal"
                             data-bs-target="#import_csv">
                             <i class="fa fa-file-csv"></i>
                         </button>
@@ -315,7 +313,7 @@
 
 
 
-                <div class="my-4 mx-4">
+                {{-- <div class="my-4 mx-4">
                     <div class="enries_per_page" style="max-width: 300px; display: flex;">
 
                         <?php
@@ -346,7 +344,7 @@
 
                         <span style="margin-top: 5px;">entries per page</span>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <div class="col-sm-12">
@@ -366,7 +364,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="float-end">
-                                        <span class="btn btn-sm btn-dark btn-icon count" style="font-size: 10px;">
+                                        <span class="btn  btn-dark btn-icon count" style="font-size: 10px;">
                                             {{ $lead_stage->lead_count() }}
                                         </span>
                                     </div>
