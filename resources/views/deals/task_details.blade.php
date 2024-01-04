@@ -156,7 +156,7 @@
                     @endcan
 
                     @can('delete task')
-                    <a href="/organization/{{ $task->id }}/taskDeleted" class="btn px-2 btn-danger text-white">
+                    <a href="/organization/{{ $task->id }}/taskDeleted" class="btn px-2 btn-danger text-white" title="{{ __('Delete') }}">
                         <i class="ti ti-trash "></i>
                     </a>
                     @endcan

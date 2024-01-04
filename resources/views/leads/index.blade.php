@@ -262,8 +262,9 @@
                                 placeholder="Search this list..." aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                         
-                            <button class="btn btn-dark p-2"><i class="ti ti-refresh"
-                                    style="font-size: 18px"></i></button>
+                        <button class="btn btn-dark p-2"  data-bs-toggle="tooltip"
+                        title="{{ __('Refresh') }}"><i class="ti ti-refresh"
+                                style="font-size: 18px"></i></button>
                         
                         <div class="dropdown d-none">
                             <button class="btn btn-dark h-100 p-2" type="button"
@@ -276,8 +277,9 @@
                             </ul>
                         </div>
 
-                        <button class="btn btn-dark  p-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <button class="btn btn-dark  p-2" type="button"
+                            aria-expanded="false"  data-bs-toggle="tooltip"
+                            title="{{ __('Filter') }}">
                             <i class="ti ti-filter" style="font-size:18px"></i>
                         </button>
 
